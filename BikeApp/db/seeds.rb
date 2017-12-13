@@ -33,12 +33,12 @@ Renter.create!(name:'Dan', last_name: 'Lev', username: 'labamba', phone_number: 
 
 #Bike
 
-Bike.create!(lender: victor, model: 'BMX', color: 'black', condition:'used')
-Bike.create!(lender: kareem, model: 'Mountain Bike', color: 'green', condition:'brand new')
-Bike.create!(lender: abrian, model: 'BMX', color: 'black', condition:'used')
-Bike.create!(lender: olivia, model: 'Mountain Bike', color: 'dark blue', condition:'new')
-Bike.create!(lender: aaron, model: 'Cyclo-Cross', color: 'red', condition:'used')
-Bike.create!(lender: osman, model: 'Hybrid', color: 'blue and yellow', condition:'used twice')
-Bike.create!(lender: alex, model: 'BMX', color: 'white', condition:'used')
-Bike.create!(lender: kai, model: 'Mountain Bike', color: 'yellow', condition:'used')
-Bike.create!(lender: josue, model: 'Mountain Bike', color: 'black', condition:'used')
+Bike.create!(lender: victor, image: 'https://drive.google.com/open?id=1tTUfitCRtVH9uMKV7fmNcjYRkjQjR71y', model: 'BMX', color: 'black', condition:'used')
+Bike.create!(lender: kareem, image: 'https://drive.google.com/open?id=1ErcbzuIDhMm7qNFM5vL9cX-nQ5nKuUJG', model: 'Mountain Bike', color: 'black and orange', condition:'brand new')
+Bike.create!(lender: abrian, image: 'https://drive.google.com/open?id=10givTq81bWLvqedU-eRUl9PMKnGrXspP', model: 'BMX', color: 'white', condition:'used')
+Bike.create!(lender: olivia, image: 'https://drive.google.com/open?id=1bO7OByjzyQYStXvOYohA9uHYKq3YsMXG', model: 'Mountain Bike', color: 'dark blue', condition:'new')
+Bike.create!(lender: aaron, image: 'https://drive.google.com/open?id=1og-7da2f7P_iaWUxDMLTXKDdFHjOGT_z', model: 'Cyclo-Cross', color: 'black and red', condition:'used')
+Bike.create!(lender: osman, image: 'https://drive.google.com/open?id=1zM24G1VKevzVI0evLsZqL3HKqdBlhurL', model: 'Hybrid', color: 'gray', condition:'used twice')
+Bike.create!(lender: alex, image: 'https://drive.google.com/open?id=1oS6Zf2wNi2J-Ty86HlsiWv8SCF4mEtnj', model: 'BMX', color: 'brown', condition:'used')
+Bike.create!(lender: kai, image: 'https://drive.google.com/open?id=1UtII8vecOmOiF1xSpt4zaK6Zto7bmFHj', model: 'Mountain Bike', color: 'red', condition:'used')
+Bike.create!(lender: josue, image: 'https://drive.google.com/open?id=1TeNC7KAICJoQDbsjFJCJdkgi74GCtgRG', model: 'Mountain Bike', color: 'blue', condition:'used')
