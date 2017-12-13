@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213175424) do
+ActiveRecord::Schema.define(version: 20171213172943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bikes", force: :cascade do |t|
-    t.string "lender"
     t.string "image"
     t.string "model"
     t.string "color"
     t.string "condition"
+    t.bigint "lender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "lender_id"
     t.index ["lender_id"], name: "index_bikes_on_lender_id"
   end
 
@@ -31,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171213175424) do
     t.string "name"
     t.string "last_name"
     t.string "username"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.text "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +40,7 @@ ActiveRecord::Schema.define(version: 20171213175424) do
     t.string "name"
     t.string "last_name"
     t.string "username"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.text "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

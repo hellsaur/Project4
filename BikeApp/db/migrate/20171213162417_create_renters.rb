@@ -4,7 +4,7 @@ class CreateRenters < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :last_name
       t.string :username
-      t.integer :phone_number
+      t.string :phone_number
       t.text :email
       t.timestamps
     end
