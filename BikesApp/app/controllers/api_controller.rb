@@ -18,7 +18,7 @@ class ApiController < ApplicationController
     
       def authenticate_token
         authenticate_with_http_token do | token, options |
-          User.find_by(auth_token: token)
+          Lender.find_by(auth_token: token)
         end
       end
 end

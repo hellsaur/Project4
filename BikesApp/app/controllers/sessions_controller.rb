@@ -1,15 +1,17 @@
-class SessionsController < ApplicationController
+class SessionsController < ApiController
     skip_before_action :require_login, only: [:create], raise: false
     
       def create
         if 
-            user = lender.validate_login(params[:username], params[:password])
+            lender = Lender.validate_login(params[:username], params[:password])
           allow_token_to_be_used_only_once_for(lender)
           send_token_for_valid_login_of(lender)
+
         elsif
-             user = renter.validate_login(params[:username], params[:password])
-        allow_token_to_be_used_only_once_for(renter)
-        send_token_for_valid_login_of(renter)
+            renter = Renter.validate_login(params[:username], params[:password])
+            allow_token_to_be_used_only_once_for(renter)
+            send_token_for_valid_login_of(renter)
+        
         else
           render_unauthorized("Error with your login or password")
         end
@@ -22,12 +24,20 @@ class SessionsController < ApplicationController
     
       private
     
-      def send_token_for_valid_login_of(user)
-        render json: { token: user.auth_token }
+      def send_token_for_valid_login_of(lender)
+        render json: { token: lender.auth_token }
+      end
+
+      def send_token_for_valid_login_of(renter)
+        render json: { token: renter.auth_token }
       end
     
-      def allow_token_to_be_used_only_once_for(user)
-        user.regenerate_auth_token
+      def allow_token_to_be_used_only_once_for(lender)
+        lender.regenerate_auth_token
+      end
+
+      def allow_token_to_be_used_only_once_for(renter)
+        renter.regenerate_auth_token
       end
     
       def logout
