@@ -1,6 +1,11 @@
 class RentersController < ApiController
     before_action :require_login, except: [:create]
     
+    def index
+        renters = Renter.all
+        render json: { renters: renters}
+      end
+
       def create
         renter = Renter.create!(renter_params)
         render json: { token: renter.auth_token }
