@@ -21,12 +21,12 @@ josue = User.create!(name:'Josue', last_name: 'Perez', user_type:'lender', usern
 
 #Bike
 
-Bike.create!(user: victor, image: 'https://drive.google.com/open?id=1tTUfitCRtVH9uMKV7fmNcjYRkjQjR71y', model: 'BMX', color: 'black', condition:'used')
+Bike.create!(user: victor, image: 'http://www.99bikes.com.au/media/catalog/product/cache/1/image/780x680/9df78eab33525d08d6e5fb8d27136e95/1/9/199784.png', model: 'BMX', color: 'black', condition:'used')
 Bike.create!(user: kareem, image: 'https://drive.google.com/open?id=1ErcbzuIDhMm7qNFM5vL9cX-nQ5nKuUJG', model: 'Mountain Bike', color: 'black and orange', condition:'brand new')
-Bike.create!(user: abrian, image: 'https://drive.google.com/open?id=10givTq81bWLvqedU-eRUl9PMKnGrXspP', model: 'BMX', color: 'white', condition:'used')
-Bike.create!(user: olivia, image: 'https://drive.google.com/open?id=1bO7OByjzyQYStXvOYohA9uHYKq3YsMXG', model: 'Mountain Bike', color: 'dark blue', condition:'new')
-Bike.create!(user: aaron, image: 'https://drive.google.com/open?id=1og-7da2f7P_iaWUxDMLTXKDdFHjOGT_z', model: 'Cyclo-Cross', color: 'black and red', condition:'used')
-Bike.create!(user: osman, image: 'https://drive.google.com/open?id=1zM24G1VKevzVI0evLsZqL3HKqdBlhurL', model: 'Hybrid', color: 'gray', condition:'used twice')
-Bike.create!(user: alex, image: 'https://drive.google.com/open?id=1oS6Zf2wNi2J-Ty86HlsiWv8SCF4mEtnj', model: 'BMX', color: 'brown', condition:'used')
-Bike.create!(user: kai, image: 'https://drive.google.com/open?id=1UtII8vecOmOiF1xSpt4zaK6Zto7bmFHj', model: 'Mountain Bike', color: 'red', condition:'used')
-Bike.create!(user: josue, image: 'https://drive.google.com/open?id=1TeNC7KAICJoQDbsjFJCJdkgi74GCtgRG', model: 'Mountain Bike', color: 'blue', condition:'used')
+Bike.create!(user: abrian, image: 'http://www.mongoose.com/media/catalog/product/m/1/m13_SUB20_slv_5.1348673611.png', model: 'BMX', color: 'white', condition:'used')
+Bike.create!(user: olivia, image: 'https://www.mountainbicycleworld.com/wp-content/uploads/2017/09/GMC-Topkick-Bike.png', model: 'Mountain Bike', color: 'dark blue', condition:'new')
+Bike.create!(user: aaron, image: 'http://www.francebikerentals.com/sites/default/files/2016-11/Portofolio_Dual_600_1.png', model: 'Cyclo-Cross', color: 'black and red', condition:'used')
+Bike.create!(user: osman, image: 'https://www.hookedoncycling.eu/wordpress/wp-content/uploads/2016/10/Sub-Cross-Lady-40-640x425.png', model: 'Hybrid', color: 'gray', condition:'used twice')
+Bike.create!(user: alex, image: 'http://www.mongoose.com/media/catalog/product/m/1/m13_CHA20_fir_9.1348673432.png', model: 'BMX', color: 'brown', condition:'used')
+Bike.create!(user: kai, image: 'https://ytmedia.azureedge.net/image/fb/7d/ea/Jeffsy29_CF_PRO_red_seite_Frei1_720x600.png', model: 'Mountain Bike', color: 'red', condition:'used')
+Bike.create!(user: josue, image: 'https://youngbloodbikes.com/wp-content/uploads/2016/08/Yetibike1bComp.png', model: 'Mountain Bike', color: 'blue', condition:'used')
