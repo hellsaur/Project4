@@ -1,6 +1,6 @@
 class LendersController < ApiController
     before_action :require_login, except: [:create]
-
+    
     def index
         lenders = Lender.all
         render json: { lenders: lenders}

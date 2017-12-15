@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post "/login"  => "sessions#create"
   delete "/logout" => "sessions#destroy"
   get "/profile" =>  "lenders#profile"
-  get "/profile" =>  "renters#profile"
+  get "/profile/renter" =>  "renters#profile"
   resources :lenders
   resources :renters
   resources :bikes
