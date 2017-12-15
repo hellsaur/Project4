@@ -25,7 +25,7 @@ class BikeList extends Component {
         return this.state.bikeList.map(bike => {
             return (
                 <div className="bike" key={bike.id}>
-                {bike.image}
+                <img src={bike.image}/>
                 <h2>{bike.model}</h2>
                 <h4>Color : {bike.color}</h4>
                 <h4>Condition : {bike.condition}</h4>

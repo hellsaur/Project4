@@ -11,6 +11,7 @@ class BikesController < ApiController
         bike_user = bike.user
         render json: { bike: bike, username: bike_user.username }
       end
+
     
       def create
         bike = Bike.new(bike_params)
@@ -25,9 +26,25 @@ class BikesController < ApiController
           render json: {message: 'Could not create bike'}
         end
       end
+
+      def update
+       bike = Bike.find(params[:id]) 
+       if bike.update(update_params)
+       end
+      end
+
+      def destroy
+        bike = Bike.find(params[:id])
+          bike.delete
+          render json: {message: 'Bike deleted'}
+         
+    end
     
       private
       def bike_params
+        params.require(:bike).permit(:image, :model, :color, :condition)
+      end
+      def update_params
         params.require(:bike).permit(:image, :model, :color, :condition)
       end
 end
