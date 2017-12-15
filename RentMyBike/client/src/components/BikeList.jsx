@@ -27,8 +27,8 @@ class BikeList extends Component {
                 <div className="bike" key={bike.id}>
                 {bike.image}
                 <h2>{bike.model}</h2>
-                <p>{bike.color}</p>
-                <p>{bike.condition}</p>
+                <h4>Color : {bike.color}</h4>
+                <h4>Condition : {bike.condition}</h4>
                 </div>
             )
         })
