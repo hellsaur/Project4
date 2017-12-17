@@ -7,6 +7,8 @@ import BikeList from './components/BikeList';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
+import Home from './components/Home';
+import Header from './components/Header';
 
 class App extends Component {
   constructor(){
@@ -85,15 +87,22 @@ class App extends Component {
   render() {
     return (
       <Router>
+        
         <div className="App">
-        <div className="nav">
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/dash">Dashboard</Link>
-        <Link to="/bikes">Bikes</Link>
+        <Header
+        logout = {this.handleLogout}
+        
+        />
+        {/* <div className="nav">
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/dash">Dashboard</Link>
+          <Link to="/bikes">Bikes</Link>
         <span onClick={this.handleLogout}>Logout</span>
-        </div>
-      
+        </div> */}
+        
+      <Route exact path = "/" render={()=> < Home />} />
       <Route exact path = "/bikes" render={()=> <BikeList />} />
       <Route exact path = "/register"
        render = {()=>(this.state.auth)

@@ -7,6 +7,7 @@ class BikeList extends Component {
             bikeList: null,
             bikeListLoaded: false,
         }
+        
     }
 
     componentDidMount() {
@@ -21,6 +22,7 @@ class BikeList extends Component {
         }).catch(err => console.log(err));
     }
 
+    
     renderBikes(){
         return this.state.bikeList.map(bike => {
             return (
@@ -29,6 +31,7 @@ class BikeList extends Component {
                 <h2>{bike.model}</h2>
                 <h4>Color : {bike.color}</h4>
                 <h4>Condition : {bike.condition}</h4>
+                <button onClick={() => this.props.handleDelete(bike.id)}>DELETE</button>
                 </div>
             )
         })

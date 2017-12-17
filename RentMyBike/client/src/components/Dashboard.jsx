@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Auth from '../modules/Auth';
 import AddBikeForm from './AddBikeForm';
+import BikeList from './BikeList';
 
 class Dashboard extends Component {
     constructor() {
@@ -9,6 +10,7 @@ class Dashboard extends Component {
             myBikes: null,
             bikesLoaded: false,
         }
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     componentDidMount(){
@@ -51,14 +53,29 @@ class Dashboard extends Component {
         }).catch(err => console.log(err));
     }
 
+    handleDelete(id){
+        fetch('/bikes', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).catch(err => console.log(err))
+      }
+
     render(){
         return (
             <div className="dash">
             <AddBikeForm addBike={this.addBike} />
+            <BikeList handleDelete={this.handleDelete} />
             {(this.state.bikesLoaded)
             ? this.state.myBikes.map(bikes => {
-                return <h1 key={bikes.id}>
-                <img src={bikes.image} /> {bikes.model}</h1>
+                return <h1 key={bikes.id}> 
+                <img src={bikes.image} /> 
+                <p> Model : {bikes.model} </p>
+                <p>Color : {bikes.color}</p>
+                <p>Condition : {bikes.condition}</p>
+                <button onClick={() => this.handleDelete(bikes.id)}>DELETE</button>
+                </h1>
             })
             : <p>Loading ...</p>}
             </div>
