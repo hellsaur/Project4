@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import Auth from '../modules/Auth';
 import AddBikeForm from './AddBikeForm';
+import EditBike from './EditBike';
 
 
 
 
 class Dashboard extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state ={
             myBikes: null,
             bikesLoaded: false,
+            showBike: false,
+            editIndex: null,
         }
-        this.handleDelete = this.handleDelete.bind(this)
+        this.showEdit = this.showEdit.bind(this);
+        this.showList = this.showList.bind(this);
+       
     }
 
     componentDidMount(){
@@ -33,6 +38,7 @@ class Dashboard extends Component {
             this.setState({
                 myBikes: res.bikes,
                 bikesLoaded: true,
+                showBike: false,
               })
         }).catch(err => console.log(err));
     }
@@ -55,14 +61,19 @@ class Dashboard extends Component {
         }).catch(err => console.log(err));
     }
 
-    handleDelete(){
-        fetch('/bike', {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).catch(err => console.log(err))
-      }
+    showEdit(id){
+        this.setState({
+            showBike: true,
+            editIndex: id, 
+        })
+    }
+
+    showList(){
+        this.setState({
+            showBike: false,
+           
+        })
+    }
 
     render(){
         return (
@@ -70,20 +81,30 @@ class Dashboard extends Component {
             <h2> <b>Welcome </b> </h2>
             
             <AddBikeForm addBike={this.addBike} />
-            {(this.state.bikesLoaded)
-            ? this.state.myBikes.map(bikes => {
-                return <h1 key={bikes.id}> 
-                <img src={bikes.image} style={{ width: '600px' }} alt="" /> 
-                <p> Model : {bikes.model} </p>
-                <p>Color : {bikes.color}</p>
-                <p>Condition : {bikes.condition}</p>
-                <button onClick={() => this.handleDelete()}>DELETE</button>
-                <button onClick= {""}>Pick Bike</button>
-                <button onClick={() => {this.props.updateInfo()}} >Edit</button>
-                </h1>
-                
+            {(this.state.bikesLoaded && !this.state.showBike)
+            ? (
+                this.state.myBikes.map(bikes => {
+                    return <h1 key={bikes.id}> 
+                    <img src={bikes.image} style={{ width: '600px' }} alt="" /> 
+                    <p> Model : {bikes.model} </p>
+                    <p>Color : {bikes.color}</p>
+                    <p>Condition : {bikes.condition}</p>
+                    <button onClick={() => this.props.handleDelete(bikes.id)}>DELETE</button>
+                    {/* <button onClick= {""}>Pick Bike</button> */}
+                    <button onClick={()=> this.showEdit(bikes.id)} >Edit</button>
+                    </h1>  
             })
-            : <p>Loading ...</p>}
+            ) : <p>Loading ...</p>}
+
+            {(this.state.bikesLoaded && this.state.showBike) && (
+                <EditBike  
+                image ={this.state.myBikes[0].image}
+                model = {this.state.myBikes[0].model}
+                color = {this.state.myBikes[0].color}
+                condition = {this.state.myBikes[0].condition}
+                id= {this.state.editIndex}
+                showList = {this.showList}/>
+            )}
             
             </div>
         )

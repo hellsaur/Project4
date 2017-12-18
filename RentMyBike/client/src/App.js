@@ -9,6 +9,7 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import Header from './components/Header';
+import EditBike from './components/EditBike';
 
 class App extends Component {
   constructor(){
@@ -20,6 +21,7 @@ class App extends Component {
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleRegisterSubmit(e, data) {
@@ -84,7 +86,18 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
-  
+  handleDelete(id){
+    fetch(`/bikes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      }
+    }).catch(err => console.log(err))
+  }
+
+
   render() {
     return (
       <Router>
@@ -95,7 +108,8 @@ class App extends Component {
         auth = {this.state.auth}
         />
       <Route exact path = "/" render={()=> < Home />} />
-      <Route exact path = "/bikes" render={()=> <BikeList />} />
+      <Route exact path = "/bikes" 
+      render={()=> <BikeList handleDelete={this.handleDelete}/>} />
       <Route exact path = "/register"
        render = {()=>(this.state.auth)
         ? <Redirect to = "/" />
@@ -107,7 +121,8 @@ class App extends Component {
         : <LoginForm handleLoginSubmit =
          {this.handleLoginSubmit}/>} />
          <Route exact path = "/dash"
-         render = {()=> <Dashboard />} />
+         render = {()=>  <Dashboard handleDelete = {this.handleDelete}/>} />
+         <Route exact path = "/edit" component={EditBike} />
       </div>
       </Router>
     );

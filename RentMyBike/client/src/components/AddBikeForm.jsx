@@ -29,7 +29,7 @@ class AddBikeForm extends Component {
                     <input type="text" name="model" placeholder="model" value={this.state.model} onChange={this.handleChange} />
                     <input type="text" name="color" placeholder="color" value={this.state.color} onChange={this.handleChange} />
                     <input type="text" name="condition" placeholder="condition" value={this.state.phone_number} onChange={this.handleChange} />
-                    <input type="submit" value="Add bike" />
+                    <button id="add-button" type="submit" value="Add bike" >Add Bike</button>
             </form>
             </div>
         )

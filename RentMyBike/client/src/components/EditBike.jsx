@@ -1,7 +1,9 @@
 
 import React, { Component } from 'react'
 
-// This component is the input bar that appears when editing the name of a saved routine.
+import Auth from '../modules/Auth';
+
+
 
 class EditBike extends Component {
 
@@ -15,9 +17,9 @@ class EditBike extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.updateInfo = this.updateInfo.bind(this)
   }
 
-  // handleChange for allowing form to receive inputs.
 
   handleChange(e){
     const name = e.target.name;
@@ -27,23 +29,42 @@ class EditBike extends Component {
     });
 }
 
-  // handleSubmit for changing the actual data.
-  // The toggleMode is to designate which saved routine is being edited.
-  // Therefore, there can only be one input field open at a time.
-
   handleSubmit(e){
     e.preventDefault()
     this.props.updateInfo(e.target.name.value)
    
   }
 
-  // Conditional rendering on the form.
+  updateInfo(e){
+    e.preventDefault()
+    fetch(`/bikes/${this.props.id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        bike: {
+          image: this.state.image,
+          model: this.state.model,
+          color: this.state.color,
+          condition: this.state.condition,
+        }
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`,
+      },
+      
+    }).then(res =>{
+      this.props.showList();
+    })
+    .catch(err => console.log(err))
+
+  }
 
   render(){
     return (
       <div>
         
-          <form onSubmit={(e) => this.handleSubmit(e)} >
+          <form onSubmit={this.updateInfo}>
             <input className="rename-input" type="text" name="image" value={this.state.image || ""}
               onChange={(e) => this.handleChange(e)} />
               <input className="rename-input" type="text" name="model" value={this.state.model || ""}
