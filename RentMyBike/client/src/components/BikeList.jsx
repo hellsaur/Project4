@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import EditBike from './EditBike';
+
 class BikeList extends Component {
     constructor(){
         super();
@@ -22,12 +24,24 @@ class BikeList extends Component {
         }).catch(err => console.log(err));
     }
 
+
+    updateInfo(data){
+        fetch('api/update', {
+          method: 'PUT',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          
+        }).catch(err => console.log(err))
     
+      }
+  
     renderBikes(){
         return this.state.bikeList.map(bike => {
             return (
                 <div className="bike" key={bike.id}>
-                <img src={bike.image}/>
+                <img src={bike.image} style={{ width: '600px' }} alt=""/>
                 <h2>{bike.model}</h2>
                 <h4>Color : {bike.color}</h4>
                 <h4>Condition : {bike.condition}</h4>
@@ -39,6 +53,7 @@ class BikeList extends Component {
     render(){
         return(
             <div className="bike-list">
+            
             {(this.state.bikeListLoaded)
                  ? this.renderBikes()
                  : <p> Loading ...</p>}

@@ -1,6 +1,6 @@
 import React, {Component } from 'react';
 
-import Auth from '../modules/Auth';
+// import Auth from '../modules/Auth';
 
 class AddBikeForm extends Component {
     constructor(){

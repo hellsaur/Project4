@@ -142,10 +142,10 @@ input{
 
 /* ===================nav================== */
 
-Link{
+nav{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -155,7 +155,6 @@ ul {
   display:inline-flex;
   justify-content: center;
   font-size: 1.2em;
-  /*font-family: 'Open Sans', sans-serif;*/
   margin:15px;
   font-weight: bold;
 }
@@ -172,7 +171,7 @@ nav a {
 }
 
 nav a:hover {
-  color: r#2bad5d;
+  color: #2bad5d;
 }
 
 .active {
