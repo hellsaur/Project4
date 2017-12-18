@@ -65,8 +65,8 @@ class Dashboard extends Component {
     render(){
         return (
             <div className="dash">
+            <h2> <b>Welcome </b> </h2>
             <AddBikeForm addBike={this.addBike} />
-            <BikeList handleDelete={this.handleDelete} />
             {(this.state.bikesLoaded)
             ? this.state.myBikes.map(bikes => {
                 return <h1 key={bikes.id}> 

@@ -31,7 +31,7 @@ class BikeList extends Component {
                 <h2>{bike.model}</h2>
                 <h4>Color : {bike.color}</h4>
                 <h4>Condition : {bike.condition}</h4>
-                <button onClick={() => this.props.handleDelete(bike.id)}>DELETE</button>
+                <button onClick={() => this.props.handleDelete()}>DELETE</button>
                 </div>
             )
         })

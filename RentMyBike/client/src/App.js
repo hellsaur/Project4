@@ -70,7 +70,7 @@ class App extends Component {
   }
 
   handleLogout() {
-    fetch('/logout',{
+    fetch('/',{
       method: 'DELETE',
       headers: {
         token: Auth.getToken(),
@@ -91,27 +91,18 @@ class App extends Component {
         <div className="App">
         <Header
         logout = {this.handleLogout}
-        
+        auth = {this.state.auth}
         />
-        {/* <div className="nav">
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/dash">Dashboard</Link>
-          <Link to="/bikes">Bikes</Link>
-        <span onClick={this.handleLogout}>Logout</span>
-        </div> */}
-        
       <Route exact path = "/" render={()=> < Home />} />
       <Route exact path = "/bikes" render={()=> <BikeList />} />
       <Route exact path = "/register"
        render = {()=>(this.state.auth)
-        ? <Redirect to = "/dash" />
+        ? <Redirect to = "/" />
         : <RegisterForm handleRegisterSubmit = 
         {this.handleRegisterSubmit} />} />
        <Route exact path = "/login" 
        render = {()=>(this.state.auth)
-        ? <Redirect to = "/dash" />
+        ? <Redirect to = "/" />
         : <LoginForm handleLoginSubmit =
          {this.handleLoginSubmit}/>} />
          <Route exact path = "/dash"

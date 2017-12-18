@@ -136,7 +136,7 @@ input{
 }
 
 .button2:hover, .button3:hover{
-  background-color: #981f3c;
+  background-color: #1f9847;
 }
 
 
@@ -178,3 +178,5 @@ nav a:hover {
 .active {
   color: #2bad5d;
 }
+/* ================================= */
+
