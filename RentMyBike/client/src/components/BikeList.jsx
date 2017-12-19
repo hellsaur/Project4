@@ -31,11 +31,11 @@ class BikeList extends Component {
         return this.state.bikeList.map(bike => {
             return (
                 <div className="bike" key={bike.id}>
-                <img src={bike.image} style={{ width: '600px' }} alt=""/>
-                <h2>{bike.model}</h2>
+                <img className ="bikeImg"src={bike.image} alt=""/>
+                <h2> Type :  {bike.model}</h2>
                 <h4>Color : {bike.color}</h4>
                 <h4>Condition : {bike.condition}</h4>
-                <button onClick={() => this.props.handleDelete}>DELETE</button>
+                <button onClick={() => this.props.handleDelete}>Rent Bike</button>
                 </div>
             )
         })

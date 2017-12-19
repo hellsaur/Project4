@@ -22,13 +22,13 @@ class LoginForm extends Component {
         return (
             <div className="form">
             
-                <form onSubmit = {(e) => this.props.handleLoginSubmit(e, this.state)}>
-                <h2>Please Login</h2>
+                <form className ="login-form" onSubmit = {(e) => this.props.handleLoginSubmit(e, this.state)}>
+                <h1>Please Login</h1>
                     <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleChange} />
                     <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
                     
                     <input type="submit" value="Login!"/>
-                    <p>Not registered?<a href='/register'>Register!</a></p>
+                    <p id= "register">Not registered?<a href='/register'>Register!</a></p>
                 </form>
                 
             </div>

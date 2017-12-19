@@ -85,16 +85,15 @@ class Dashboard extends Component {
             ? (
                 this.state.myBikes.map(bikes => {
                     return <h1 key={bikes.id}> 
-                    <img src={bikes.image} style={{ width: '600px' }} alt="" /> 
+                    <img className ="bikeImg" src={bikes.image}  alt="" /> 
                     <p> Model : {bikes.model} </p>
                     <p>Color : {bikes.color}</p>
                     <p>Condition : {bikes.condition}</p>
                     <button onClick={() => this.props.handleDelete(bikes.id)}>DELETE</button>
-                    {/* <button onClick= {""}>Pick Bike</button> */}
-                    <button onClick={()=> this.showEdit(bikes.id)} >Edit</button>
+                    <button onClick={()=> this.showEdit(bikes.id)} >EDIT</button>
                     </h1>  
             })
-            ) : <p>Loading ...</p>}
+            ) : <p>EDIT</p>}
 
             {(this.state.bikesLoaded && this.state.showBike) && (
                 <EditBike  

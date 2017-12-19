@@ -64,7 +64,7 @@ class EditBike extends Component {
     return (
       <div>
         
-          <form onSubmit={this.updateInfo}>
+          <form className="editForm" onSubmit={this.updateInfo}>
             <input className="rename-input" type="text" name="image" value={this.state.image || ""}
               onChange={(e) => this.handleChange(e)} />
               <input className="rename-input" type="text" name="model" value={this.state.model || ""}
@@ -73,7 +73,7 @@ class EditBike extends Component {
               onChange={(e) => this.handleChange(e)} />
               <input className="rename-input" type="text" name="condition" value={this.state.condition || ""}
               onChange={(e) => this.handleChange(e)} />
-          <input className ="submit-rename-btn" type="submit" value="SUBMIT"/>
+          <button id="edit-button" type="submit" value="Edit bike" >Edit Bike</button>
           </form>
         
       </div>
