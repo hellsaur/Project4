@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import Header from './components/Header';
 import EditBike from './components/EditBike';
+import BikeRentalForm from './components/BikeRentalForm';
 
 class App extends Component {
   constructor(){
@@ -123,6 +124,7 @@ class App extends Component {
          <Route exact path = "/dash"
          render = {()=>  <Dashboard handleDelete = {this.handleDelete}/>} />
          <Route exact path = "/edit" component={EditBike} />
+         <Route exact path = "/rental" render={()=><BikeRentalForm />}/>
       </div>
       </Router>
     );

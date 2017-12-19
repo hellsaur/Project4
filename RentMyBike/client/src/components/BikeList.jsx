@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom'
 import EditBike from './EditBike';
+import BikeRentalForm from './BikeRentalForm';
 
 class BikeList extends Component {
     constructor(props){
@@ -35,7 +36,9 @@ class BikeList extends Component {
                 <h2> Type :  {bike.model}</h2>
                 <h4>Color : {bike.color}</h4>
                 <h4>Condition : {bike.condition}</h4>
-                <button onClick={() => this.props.handleDelete}>Rent Bike</button>
+                <Link to='/rental'>
+                    <button>Rent Bike</button>
+                </Link>
                 </div>
             )
         })
@@ -44,7 +47,6 @@ class BikeList extends Component {
         console.log(this.props)
         return(
             <div className="bike-list">
-            
             {(this.state.bikeListLoaded)
                  ? this.renderBikes()
                  : <p> Loading ...</p>}
