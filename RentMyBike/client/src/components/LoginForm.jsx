@@ -27,7 +27,7 @@ class LoginForm extends Component {
                     <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleChange} />
                     <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
                     
-                    <input type="submit" value="Login!"/>
+                    <button id="add-button" type="submit" value="Add bike" >Login</button>
                     <p id= "register">Not registered?<a href='/register'>Register!</a></p>
                 </form>
                 

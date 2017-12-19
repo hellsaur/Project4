@@ -14,7 +14,7 @@ function Header(props){
               <NavLink exact to='/'>HOME</NavLink>
             </li>
             <li><NavLink exact to='/dash' >PROFILE</NavLink></li>
-            <li><NavLink exact to='/bikes' >BIKES</NavLink></li>
+            {/* <li><NavLink exact to='/bikes' >BIKES</NavLink></li> */}
             <li><NavLink exact to='/login' onClick={() => props.logout()}>LOGOUT</NavLink></li>
           </ul>
         </nav>

@@ -78,7 +78,7 @@ class Dashboard extends Component {
     render(){
         return (
             <div className="dash">
-            <h2> <b>Welcome </b> </h2>
+            <h2> <b>Welcome<br/> <br/> Add your bike here! </b> </h2>
             
             <AddBikeForm addBike={this.addBike} />
             {(this.state.bikesLoaded && !this.state.showBike)

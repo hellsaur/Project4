@@ -33,7 +33,7 @@ class RegisterForm extends Component {
                     <input type="text" name="phone_number" placeholder="phone number" value={this.state.phone_number} onChange={this.handleChange} />
                     <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.handleChange} />
                     <input type="text" name="last_name" placeholder="last name" value={this.state.last_name} onChange={this.handleChange} />
-                    <input type="submit" value="Register!"/>
+                    <button id="add-button" type="submit" value="register" >Register</button>
                 </form>
             </div>
         )
