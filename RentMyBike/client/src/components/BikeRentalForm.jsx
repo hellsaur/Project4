@@ -59,7 +59,7 @@ class BikeRentalForm extends Component {
                     <input type="text" name="address" placeholder="address" value={this.state.address} onChange={this.handleChange} />
                     <input type="text" name="duration" placeholder="duration" value={this.state.duration} onChange={this.handleChange} />
                     
-                    <button id="add-button" type="submit" value="Add bike" onClick={alert()} >Submit</button>
+                    <button id="add-button" type="submit" value="Add bike" >Submit</button>
             </form>
             </div>
         )
